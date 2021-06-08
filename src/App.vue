@@ -10,20 +10,30 @@
 </template>
 
 <script>
+import {mapState} from 'vuex'
+
 export default {
   name: 'App',
   data() {
     return {
-      counter: 0
+      // counter: 0
     }
   },
   methods: {
     increment() {
-      this.counter++
+      console.log(this.counter)
+      this.$store.commit('increment')
     },
     decrement() {
-      this.counter--
+      this.$store.commit('decrement')
     }
+  },
+  computed: {
+    ...mapState(['counter'])
+    // counter() {
+    //   // return this.$store.state.counter
+      
+    // }
   }
 }
 </script>
